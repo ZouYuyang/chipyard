@@ -10,6 +10,8 @@ import gemmini._
 
 import chipyard.{TestSuitesKey, TestSuiteHelper}
 
+import addtwice._
+
 /**
  * Map from a tileId to a particular RoCC accelerator
  */
@@ -56,4 +58,15 @@ class WithCharacterCountRoCC(op: OpcodeSet = OpcodeSet.custom2) extends Config((
     val counter = LazyModule(new CharacterCountExample(op)(p))
     counter
   })
+})
+
+
+class WithAddTwiceAccel extends Config((site, here, up) => {
+  case BuildRoCC => up(BuildRoCC) ++ Seq(
+    (p:Parameters) => {
+      val regWidth = 64
+      val rocc = LazyModule(new addtwice(OpcodeSet.all, regWidth)(p))
+      rocc
+    }
+  )
 })
