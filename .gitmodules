@@ -130,9 +130,6 @@
 [submodule "tools/torture"]
 	path = tools/torture
 	url = https://github.com/ucb-bar/riscv-torture.git
-[submodule "vlsi/hammer-mentor-plugins"]
-	path = vlsi/hammer-mentor-plugins
-	url = https://github.com/ucb-bar/hammer-mentor-plugins.git
 [submodule "tools/dsptools"]
 	path = tools/dsptools
 	url = https://github.com/ucb-bar/dsptools.git
@@ -157,3 +154,6 @@
 [submodule "generators/ara"]
 	path = generators/ara
 	url = https://github.com/ucb-bar/ara-wrapper.git
+[submodule "docker-utils"]
+	path = docker-utils
+	url = git@github.com:uv-xiao/chipyard-docker.git

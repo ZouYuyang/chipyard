@@ -1,4 +1,29 @@
+## Usage
+
+### Setup
+
+```bash
+source ./setup.sh
+```
+
+### Run
+
+```bash
+docker_attach
+source /root/miniforge3/bin/activate # activate conda
+cd chipyard
+source ./env.sh
+make -C sims/verilator CONFIG=<config> # e.g. CONFIG=addtwiceBOOMV3Config
+make -C tests
+sims/verilator/simluator-chipyard.harness-addtwiceBOOMV3Config tests/add_twice.riscv
+```
+
+
+<details>
+<summary>Chipyard README</summary>
+
 ![CHIPYARD](https://github.com/ucb-bar/chipyard/raw/main/docs/_static/images/chipyard-logo-full.png)
+
 
 # Chipyard Framework [![Test](https://github.com/ucb-bar/chipyard/actions/workflows/chipyard-run-tests.yml/badge.svg)](https://github.com/ucb-bar/chipyard/actions)
 
@@ -100,3 +125,4 @@ This work is supported by the NSF CCRI ENS Chipyard Award #2016662.
 [nvdla]: http://nvdla.org/
 [saturn]: https://github.com/ucb-bar/saturn-vectors
 [ara]: https://github.com/pulp-platform/ara
+</details>

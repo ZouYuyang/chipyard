@@ -1,0 +1,6 @@
+{
+  "./build.sbt": "/root/chipyard/build.sbt",
+  "./generators": "/root/chipyard/generators",
+  "./tests": "/root/chipyard/tests",
+  "/etc/localtime": "/etc/localtime:ro"
+}
