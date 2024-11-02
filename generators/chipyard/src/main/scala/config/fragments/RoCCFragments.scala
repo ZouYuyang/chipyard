@@ -11,6 +11,7 @@ import gemmini._
 import chipyard.{TestSuitesKey, TestSuiteHelper}
 
 import addtwice._
+import Crc32._
 
 /**
  * Map from a tileId to a particular RoCC accelerator
@@ -66,6 +67,14 @@ class WithAddTwiceAccel extends Config((site, here, up) => {
     (p:Parameters) => {
       val regWidth = 64
       val rocc = LazyModule(new addtwice(OpcodeSet.all, regWidth)(p))
+      rocc
+    }
+  )
+})
+
+class WithCrc32Accel extends Config((site, here, up) => {
+  case BuildRoCC => up(BuildRoCC) ++ Seq((p: Parameters) => {
+      val rocc = LazyModule(new Crc32(OpcodeSet.custom0)(p))
       rocc
     }
   )

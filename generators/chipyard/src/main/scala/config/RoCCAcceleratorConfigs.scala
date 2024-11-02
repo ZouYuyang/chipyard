@@ -72,11 +72,24 @@ class ZstdCompressorRocketConfig extends Config(
   new freechips.rocketchip.rocket.WithNHugeCores(1) ++
   new chipyard.config.AbstractConfig)
 
-class addtwiceBOOMV3Config extends Config(
+class addtwiceBOOMV4Config extends Config(
   new chipyard.config.WithAddTwiceAccel ++                   // rerocc tile0 is accum
   new boom.v4.common.WithNSmallBooms(1) ++                          // small boom config
   new chipyard.config.AbstractConfig
 )
+
+class AccuBOOMV4Config extends Config(
+  new chipyard.config.WithAccumulatorRoCC ++
+  new boom.v4.common.WithNSmallBooms(1) ++
+  new chipyard.config.AbstractConfig
+)
+
+class Crc32BOOMV4Config extends Config(
+  new chipyard.config.WithCrc32Accel ++
+  new boom.v4.common.WithNSmallBooms(1) ++
+  new chipyard.config.AbstractConfig
+)
+
 class addtwiceRocketConfig extends Config(
   new chipyard.config.WithAddTwiceAccel ++                   // rerocc tile0 is accum
   new freechips.rocketchip.rocket.WithNSmallCores(1) ++

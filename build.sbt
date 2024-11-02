@@ -176,7 +176,7 @@ lazy val chipyard = (project in file("generators/chipyard"))
     dsptools, rocket_dsp_utils,
     gemmini, icenet, tracegen, cva6, nvdla, sodor, ibex, fft_generator,
     constellation, mempress, barf, shuttle, caliptra_aes, rerocc,
-    compressacc, saturn, ara, addtwice)
+    compressacc, saturn, ara, addtwice, crc32)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(
     libraryDependencies ++= Seq(
@@ -359,5 +359,9 @@ lazy val chipyard_fpga = (project in file("./fpga"))
   .settings(commonSettings)
 
 lazy val addtwice = (project in file("generators/addtwice"))
+  .dependsOn(rocketchip, testchipip)
+  .settings(commonSettings)
+  
+lazy val crc32 = (project in file("generators/crc32"))
   .dependsOn(rocketchip, testchipip)
   .settings(commonSettings)
