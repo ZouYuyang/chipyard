@@ -12,6 +12,7 @@ import chipyard.{TestSuitesKey, TestSuiteHelper}
 
 import addtwice._
 import Crc32._
+import ntt._
 
 /**
  * Map from a tileId to a particular RoCC accelerator
@@ -75,6 +76,14 @@ class WithAddTwiceAccel extends Config((site, here, up) => {
 class WithCrc32Accel extends Config((site, here, up) => {
   case BuildRoCC => up(BuildRoCC) ++ Seq((p: Parameters) => {
       val rocc = LazyModule(new Crc32(OpcodeSet.custom0)(p))
+      rocc
+    }
+  )
+})
+
+class WithNTTAccel extends Config((site, here, up) => {
+  case BuildRoCC => up(BuildRoCC) ++ Seq((p: Parameters) => {
+      val rocc = LazyModule(new NTT(OpcodeSet.custom1)(p))
       rocc
     }
   )
