@@ -176,7 +176,7 @@ lazy val chipyard = (project in file("generators/chipyard"))
     dsptools, rocket_dsp_utils,
     gemmini, icenet, tracegen, cva6, nvdla, sodor, ibex, fft_generator,
     constellation, mempress, barf, shuttle, caliptra_aes, rerocc,
-    compressacc, saturn, ara, addtwice, crc32, ntt)
+    compressacc, saturn, ara, addtwice, crc32, ntt, cordic)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(
     libraryDependencies ++= Seq(
@@ -367,5 +367,9 @@ lazy val crc32 = (project in file("generators/crc32"))
   .settings(commonSettings)
 
 lazy val ntt = (project in file("generators/ntt"))
+  .dependsOn(rocketchip, testchipip)
+  .settings(commonSettings)
+
+lazy val cordic = (project in file("generators/cordic"))
   .dependsOn(rocketchip, testchipip)
   .settings(commonSettings)

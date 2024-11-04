@@ -96,6 +96,12 @@ class NTTBOOMV4Config extends Config(
   new chipyard.config.AbstractConfig
 )
 
+class CORDICBOOMV4Config extends Config(
+  new chipyard.config.WithCORDICAccel ++
+  new boom.v4.common.WithNSmallBooms(1) ++
+  new chipyard.config.AbstractConfig
+)
+
 class addtwiceRocketConfig extends Config(
   new chipyard.config.WithAddTwiceAccel ++                   // rerocc tile0 is accum
   new freechips.rocketchip.rocket.WithNSmallCores(1) ++
