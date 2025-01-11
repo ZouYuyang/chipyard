@@ -42,7 +42,7 @@ class WithArty100TTweaks(freqMHz: Double = 50) extends Config(
   new chipyard.harness.WithAllClocksFromHarnessClockInstantiator ++
   new chipyard.clocking.WithPassthroughClockGenerator ++
   new chipyard.config.WithTLBackingMemory ++ // FPGA-shells converts the AXI to TL for us
-  new freechips.rocketchip.subsystem.WithExtMemSize(BigInt(256) << 20) ++ // 256mb on ARTY
+  new freechips.rocketchip.subsystem.WithExtMemSize(BigInt(128) << 20) ++ // 256mb on ARTY
   new freechips.rocketchip.subsystem.WithoutTLMonitors)
 
 class RocketArty100TConfig extends Config(
