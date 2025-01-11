@@ -360,6 +360,7 @@ lazy val chipyard_fpga = (project in file("./fpga"))
 
 lazy val addtwice = (project in file("generators/addtwice"))
   .dependsOn(rocketchip, testchipip)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
   
 lazy val crc32 = (project in file("generators/crc32"))
