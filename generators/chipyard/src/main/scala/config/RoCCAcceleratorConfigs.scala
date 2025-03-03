@@ -107,3 +107,15 @@ class addtwiceRocketConfig extends Config(
   new freechips.rocketchip.rocket.WithNSmallCores(1) ++
   new chipyard.config.AbstractConfig
 )
+
+class ClayBOOMConfig extends Config(
+  new clay.WithClayAccel ++
+  new boom.v4.common.WithNSmallBooms(1) ++
+  new chipyard.config.AbstractConfig
+)
+
+class ClayRocketConfig extends Config(
+  new clay.WithClayAccel ++
+  new freechips.rocketchip.rocket.WithNSmallCores(1) ++
+  new chipyard.config.AbstractConfig
+)

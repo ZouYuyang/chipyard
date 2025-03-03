@@ -29,7 +29,7 @@ include libgloss.mk
 
 PROGRAMS = pwm blkdev accum charcount nic-loopback big-blkdev pingd \
            streaming-passthrough streaming-fir nvdla spiflashread spiflashwrite fft gcd \
-           hello mt-hello symmetric add_twice crc32 ntt cordic
+           hello mt-hello symmetric add_twice crc32 ntt cordic demo_rocc
 
 
 .DEFAULT_GOAL := default
